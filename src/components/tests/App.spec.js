@@ -7,6 +7,7 @@ import MainSection from '../../containers/MainSection';
 
 const setup2 = propOverrides => {
     const { container } = render(<App />);
+    console.log(container)
     return container;
 };
 
@@ -21,6 +22,7 @@ describe('components', () => {
     describe('Header', () => {
         it('should render', () => {
             const output = setup();
+            const output2 = setup2();
             const [header] = output.props.children;
             expect(header.type).toBe(Header);
         });
