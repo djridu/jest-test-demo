@@ -5,7 +5,6 @@
         "start": "webpack-dev-server --progress",
         "build": "webpack --progress",
         "build:clean": "rimraf ./build",
-        "pretest": "npm run test:clean && npm run lint",
         "test": "cross-env NODE_ENV=test jest --bail",
         "test:watch": "cross-env NODE_ENV=test jest --watchAll --verbose",
         "test:coverage": "cross-env NODE_ENV=test jest --coverage",

@@ -10,7 +10,7 @@ module.exports = {
     collectCoverageFrom: [
         'src/**/*.{js,jsx}',
         '!src/**/*.test.{js,jsx}',
-        '!src/app.js',
+        '!src/index.js',
         '!src/*/*/Loadable.{js,jsx}',
         '!flow-typed/**/*',
     ],

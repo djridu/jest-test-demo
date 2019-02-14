@@ -10,7 +10,7 @@ const PUBLIC_DIR = 'public';
 
 module.exports = {
     entries: {
-        main: ['app.js'],
+        main: ['index.js'],
     },
     outputs: {
         path: 'build',

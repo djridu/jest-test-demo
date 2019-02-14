@@ -1,22 +1,28 @@
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
-
+import { createRenderer } from 'react-test-renderer/shallow';
 import App from '../App';
 import Header from '../../containers/Header';
 import MainSection from '../../containers/MainSection';
 
-const setup = propOverrides => {
+const setup2 = propOverrides => {
     const { container } = render(<App />);
     return container;
+};
+
+const setup = propOverrides => {
+    const renderer = createRenderer();
+    renderer.render(<App />);
+    const output = renderer.getRenderOutput();
+    return output;
 };
 
 describe('components', () => {
     describe('Header', () => {
         it('should render', () => {
             const output = setup();
-            console.log(output);
-            // const [ header ] = output.props.children
-            // expect(header.type).toBe(Header)
+            const [header] = output.props.children;
+            expect(header.type).toBe(Header);
         });
     });
 
