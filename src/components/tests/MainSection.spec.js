@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRenderer } from 'react-test-renderer/shallow';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import MainSection from '../MainSection';
 import Footer from '../Footer';
 import VisibleTodoList from '../../containers/VisibleTodoList';
@@ -20,7 +20,7 @@ const setup = propOverrides => {
         propOverrides,
     );
 
-    const renderer = createRenderer();
+    const renderer = new ShallowRenderer();
     renderer.render(<MainSection {...props} />);
     const output = renderer.getRenderOutput();
 

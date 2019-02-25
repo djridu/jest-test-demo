@@ -1,5 +1,6 @@
 import React from 'react';
-import { createRenderer } from 'react-test-renderer/shallow';
+import ShallowRenderer from 'react-test-renderer/shallow';
+import { render, fireEvent, waitForElement } from 'react-testing-library';
 import Header from '../Header';
 import TodoTextInput from '../TodoTextInput';
 
@@ -8,19 +9,24 @@ const setup = () => {
         addTodo: jest.fn(),
     };
 
-    const renderer = createRenderer();
+    const renderer = new ShallowRenderer();
     renderer.render(<Header {...props} />);
     const output = renderer.getRenderOutput();
 
     return {
-        props: props,
-        output: output,
-        renderer: renderer,
+        props,
+        output,
+        renderer,
     };
 };
 
 describe('components', () => {
     describe('Header', () => {
+        it('should render and match the snapshot', () => {
+            const output = setup();
+            expect(output).toMatchSnapshot();
+        });
+
         it('should render correctly', () => {
             const { output } = setup();
             expect(output.type).toBe('header');
@@ -35,6 +41,15 @@ describe('components', () => {
         });
 
         it('should call addTodo if length of text is greater than 0', () => {
+            const { output, props } = setup();
+            const input = output.props.children[1];
+            input.props.onSave('');
+            expect(props.addTodo).not.toBeCalled();
+            input.props.onSave('Use Redux');
+            expect(props.addTodo).toBeCalled();
+        });
+
+        it('should call addTodo if length of text is greater than 0 - v2', () => {
             const { output, props } = setup();
             const input = output.props.children[1];
             input.props.onSave('');

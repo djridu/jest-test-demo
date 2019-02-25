@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRenderer } from 'react-test-renderer/shallow';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import Link from '../Link';
 
 const setup = propOverrides => {
@@ -12,7 +12,7 @@ const setup = propOverrides => {
         propOverrides,
     );
 
-    const renderer = createRenderer();
+    const renderer = new ShallowRenderer();
     renderer.render(<Link {...props} />);
     const output = renderer.getRenderOutput();
 

@@ -8,7 +8,7 @@ const Header = ({ addTodo }) => (
         <TodoTextInput
             newTodo
             onSave={text => {
-                if (text.length !== 0) {
+                if (text.length) {
                     addTodo(text);
                 }
             }}

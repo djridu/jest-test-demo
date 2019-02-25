@@ -33,9 +33,9 @@ module.exports = {
     },
     modulePathIgnorePatterns: ['<rootDir>/build/'],
     prettierPath: '<rootDir>/node_modules/prettier',
-    setupFiles: ['@babel/polyfill', 'react-app-polyfill/jsdom'],
+    setupFiles: ['@babel/polyfill'],
     setupFilesAfterEnv: ['react-testing-library/cleanup-after-each'],
-    testEnvironment: 'jsdom',
+    testEnvironment: 'jest-environment-jsdom',
     testMatch: [
         '<rootDir>/src/**/tests/**/*.{js,jsx}',
         '<rootDir>/src/**/?(*.)(spec|test).{js,jsx}',

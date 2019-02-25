@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRenderer } from 'react-test-renderer/shallow';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import TodoList from '../TodoList';
 import TodoItem from '../TodoItem';
 
@@ -26,7 +26,7 @@ const setup = () => {
         },
     };
 
-    const renderer = createRenderer();
+    const renderer = new ShallowRenderer();
     renderer.render(<TodoList {...props} />);
     const output = renderer.getRenderOutput();
 

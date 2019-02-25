@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRenderer } from 'react-test-renderer/shallow';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import Footer from '../Footer';
 import FilterLink from '../../containers/FilterLink';
 import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from '../../constants/TodoFilters';
@@ -14,13 +14,13 @@ const setup = propOverrides => {
         propOverrides,
     );
 
-    const renderer = createRenderer();
+    const renderer = new ShallowRenderer();
     renderer.render(<Footer {...props} />);
     const output = renderer.getRenderOutput();
 
     return {
-        props: props,
-        output: output,
+        props,
+        output,
     };
 };
 

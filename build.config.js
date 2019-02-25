@@ -64,7 +64,7 @@ module.exports = {
         },
     ],
     alias: {},
-    modules: ['node_modules', 'packages', 'src', 'src/modules/view'],
+    modules: ['node_modules', 'packages', 'src', 'src/modules/view', 'config/testing'],
     mainFields: ['browser', 'jsnext:main', 'main'],
     aliasResolveExtensions: ['.js', '.jsx'],
     devServer: {
